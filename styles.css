@@ -1,15 +1,26 @@
 body {
-    width: 90rem;
-    font-family: Arial, sans-serif;
+    width: 85%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     background-color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-ul#canais{
-    width: 100%;
-    background-color: #000;
-    padding: 2rem;
-    border-radius: 1rem;
+h1{
+    width: 15rem;
+position: relative;
+right: -76rem;
+top: 4rem;
+color: #fff;
+font-size: 1.5rem;
 
+}
+
+ul#canais {
+    background-color: #000;
+    padding: 1rem;
+    border-radius: rem;
     text-align: center;
     list-style-type: none;
 }
@@ -23,19 +34,17 @@ ul#canais li a {
     color: #fff;
     text-decoration: none;
     background-color: crimson;
-    padding: 1.5rem 4rem;
+    padding: 1.5rem 6.8rem;
     border-radius: 1rem;
     border: solid 0.1rem;
 }
 
 iframe {
-    margin-top: -1rem; 
-    margin-left: 1.5rem;
-    width: 91rem;
+    margin-top: -1rem;
+    width: 75rem;
     height: 40rem;
     border: solid 0.1rem #333;
     box-shadow: #000 0 0 5rem;
-
 }
 
 footer {
@@ -54,17 +63,34 @@ footer {
     }
 
     ul#canais {
-       gap: 1rem;
+        padding: 0.5rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+        gap: 1rem;
+        justify-content: center; 
     }
 
     ul#canais li {
+        margin: 0rem;
+    }
+
+    ul#canais li a {
         display: flex;
-        margin: 0 auto 1rem;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        text-decoration: none;
+        background-color: crimson;
+        padding: 1rem; 
+        border-radius: 1rem;
+        border: solid 0.1rem;
+        width: 60%;
+        white-space: nowrap;
     }
 
     iframe {
         width: 21rem;
-        height: 20rem;
-        margin: 0 auto;
-    }
+        height: 30rem;
+        margin-top: -2rem;
+}
 }
