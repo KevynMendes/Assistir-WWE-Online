@@ -12,14 +12,14 @@ window.onload = function() {
     var imageSrc;
     var linkBackgroundColor;
     
-    if (dayOfWeek === 0 || dayOfWeek === 1 || dayOfWeek === 2) { // Domingo (0), Segunda (1) ou Terça (2)
+    if (dayOfWeek === 0 || dayOfWeek === 1) { // Domingo (0), Segunda (1)
         imageSrc = "src/raw.jpg";
         linkBackgroundColor = "crimson"; 
-    } else if (dayOfWeek >= 3 && dayOfWeek <= 5) { // Quarta (3) a Sexta (5)
+    } else if (dayOfWeek >= 2 && dayOfWeek <= 5) { // Quarta (3) a Sexta (5)
         imageSrc = "src/smackdown.jpg";
         linkBackgroundColor = "blue"; 
     } else { // Sábado (6)
-        imageSrc = "src/WM40.jpg";
+        imageSrc = "src/raw.jpg";
         linkBackgroundColor = "crimson";
     }
 
