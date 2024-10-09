@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoie Nosso Canal</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-image: url('https://www.wwe.com/f/parts-unknown-60.jpg'); /* Substitua pelo caminho da sua imagem de fundo */
+            background-size: cover; /* Cobre toda a tela */
+            background-position: center; /* Centraliza a imagem */
+            margin: 0;
+            padding: 0;
+            display: flex; /* Alterado para flex para melhor controle */
+            justify-content: center;
+            align-items: start;
+            height: 100vh;
+            color: #fff; /* Texto branco para contraste */
+            text-align: center;
+        }
+        .container {
+            display: flex; /* Adiciona flexbox para o contêiner */
+            background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
+            border-radius: 15px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+            padding: 1REM;
+            max-width: 1200px; /* Aumenta a largura máxima para acomodar as enquetes */
+            width: 100%; /* Responsivo */
+        }
+        .content {
+            flex: 1; /* Permite que esta seção ocupe o espaço disponível */
+            margin-right: 20px; /* Espaçamento à direita */
+        }
+        .polls {
+            display: block; /* Adiciona flexbox para as enquetes */
+            flex-direction: column; /* Coloca as enquetes em coluna */
+            flex: 1; /* Permite que esta seção ocupe o espaço disponível */
+        }
+        h1 {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: #ffcc00; /* Cor dourada para destaque */
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #f0f0f0; /* Texto mais claro */
+        }
+        .subscribe-button {
+            background-color: #ff0000; /* Vermelho para o botão de inscrição */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 20px 0;
+            transition: background-color 0.3s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+        }
+        .subscribe-button:hover {
+            background-color: #c70000;
+            transform: scale(1.05);
+        }
+        .youtube-logo {
+            width: 40px; /* Ajuste o tamanho do logo do YouTube */
+            height: auto;
+            margin-right: 10px; /* Espaçamento à direita da imagem */
+        }
+        .countdown {
+            font-size: 24px;
+            color: #ffcc00; /* Cor dourada para o contador */
+            margin-top: 20px;
+        }
+    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="polls">
+            <div class="poll">
+                <h2>Gostaria que fizéssemos mais conteúdo sobre Wrestling?</h2>
+                <ce:enquete id="15662110" question_size="5" option_size="6" img_option_size="5" font="Lato, sans-serif" primary_color="#ff9f1c" secondary_color="#ffffff" height="268"></ce:enquete>
+                <script async type="text/javascript" src="https://www.criarenquete.com.br/user.js"></script>
+            </div>
+
+            <div class="poll">
+                <ce:enquete id="15662210" question_size="5" option_size="6" img_option_size="5" font="Lato, sans-serif" primary_color="#ff9f1c" secondary_color="#ffffff" height="268"></ce:enquete>
+                <script async type="text/javascript" src="https://www.criarenquete.com.br/user.js"></script>
+            </div>
+
+            <div class="poll">
+                <ce:enquete id="15662310" question_size="5" option_size="6" img_option_size="5" font="Lato, sans-serif" primary_color="#ff9f1c" secondary_color="#ffffff" height="268"></ce:enquete>
+                <script async type="text/javascript" src="https://www.criarenquete.com.br/user.js"></script>
+            </div>
+            <div class="content">
+                <h1>Apoie Nosso Canal!</h1>
+                <p>Se você gosta do nosso conteúdo, inscreva-se no nosso canal do YouTube e curta nossos vídeos!</p>
+    
+                <button class="subscribe-button" onclick="window.open('https://www.youtube.com/@esporte360news', '_blank')">Inscrever-se</button>
+                <p class="countdown" id="countdown"></p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <script>
+        // Contador regressivo
+        let countdown = 20; // segundos
+        const countdownElement = document.getElementById('countdown');
+
+        const interval = setInterval(() => {
+            countdownElement.textContent = `Redirecionando em ${countdown} segundos...`;
+            countdown--;
+
+            if (countdown < 0) {
+                clearInterval(interval);
+                window.location.href = 'index.html'; // Redireciona após o tempo
+            }
+        }, 1000); // Atualiza a cada segundo
+    </script>
+</body>
+</html>

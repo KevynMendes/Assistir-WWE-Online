@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Usar o Site</title>
+    <style>
+        /* Estilos gerais */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+
+        .pc-message {
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        /* Estilos do botão de assistir */
+        .watch-button {
+            display: inline-block;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .watch-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Estilos para mensagem de F11 */
+        .f11-message {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>1ª BAIXE A EXTENSÃO M3U8 HLS + DASH NO GOOGLE CHROME (NECESSÁRIO)</h1>
+    <div class="pc-message" id="pc-message">
+        Para assistir, baixe esta extensão:
+        <a href="https://chromewebstore.google.com/detail/reproductor-m3u8-hls-+-da/lcipembjfkmeggpihdpdgnjildgniffl" target="_blank">
+            Reproductor M3U8 HLS + DASH
+        </a>.
+    </div>
+
+    <h1>2ª APÓS INSTALAR A EXTENSÃO M3U8 HLS + DASH ESCOLHA UMA OPÇÃO ⬇️</h1>
+    <!-- Botões "Assista Aqui" -->
+    <a class="watch-button" href="LiveYT.html" target="_blank" onclick="openFullscreen(event, 'LiveYT.html')">Transmissão em: Português.</a>
+    <a class="watch-button" href="USAnetwork.html" target="_blank" onclick="openFullscreen(event, 'USAnetwork.html')">Transmissão em: Inglês.</a>
+    
+    <!-- Mensagem sugerindo pressionar F11 -->
+    <div class="f11-message">
+        Após abrir a transmissão, pressione <strong>F11</strong> para entrar em tela cheia.
+    </div>
+</div>
+
+<!-- JavaScript para abrir em tela cheia -->
+<script>
+    function openFullscreen(event, url) {
+        event.preventDefault(); // Impede a ação padrão do link
+
+        // Cria uma nova janela para a transmissão
+        const newWindow = window.open(url, '_blank');
+
+        // Tenta colocar a nova janela em tela cheia
+        newWindow.addEventListener('load', function() {
+            if (newWindow.document.body) {
+                if (newWindow.document.documentElement.requestFullscreen) {
+                    newWindow.document.documentElement.requestFullscreen();
+                } else if (newWindow.document.documentElement.mozRequestFullScreen) { // Firefox
+                    newWindow.document.documentElement.mozRequestFullScreen();
+                } else if (newWindow.document.documentElement.webkitRequestFullscreen) { // Chrome, Safari, and Opera
+                    newWindow.document.documentElement.webkitRequestFullscreen();
+                } else if (newWindow.document.documentElement.msRequestFullscreen) { // IE/Edge
+                    newWindow.document.documentElement.msRequestFullscreen();
+                }
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

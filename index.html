@@ -1,30 +1,112 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-H1967WG45K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-H1967WG45K');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3498788253359300"
+     crossorigin="anonymous"></script>
     <meta charset="UTF-8">
+    <meta name="google-adsense-account" content="ca-pub-3498788253359300">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wrestlemania 40 - Ao Vivo</title>
+    <title>WWE AO VIVO</title>
     <link rel="icon" type="image/png" href="src/logo.png">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="adstyles.css">
 </head>
 <body>
-    <header>
-    </header>
+    <!-- Container para o vídeo de fundo -->
+  <div class="video-container">
+    <video autoplay muted loop id="background-video">
+        <source src="src/raw.mp4" type="video/mp4">
+        Seu navegador não suporta vídeos em HTML5.
+    </video>
+</div>
+
     <main>
-      <h1>&larr; Escolha um Canal</h1>
+<!-- Botão de Menu -->
+<button class="menu-button" id="menu-toggle">☰ Shows</button>
+
+<!-- Barra Lateral -->
+<aside class="sidebar" id="sidebar">
+    <!-- Cards com informações -->
+    <section class="cards">
+        <div class="card">
+            <img src="src/cardRAW.png" alt="WWE Raw">
+            <p>Segunda-feira, 21:00h.</p>
+        </div>
+        <div class="card">
+            <img src="src/cardNXT.jpg" alt="WWE NXT">
+            <p>Terça-feira, 21:00h.</p>
+        </div>
+        <div class="card">
+            <img src="src/cardSMACK.jpg" alt="WWE SmackDown">
+            <p>Sexta-feira, 21:00h.</p>
+        </div>
+        <div class="card">
+            <img src="src/cardBadBlood.jpg" alt="WWE PPV">
+            <p>05 de Outubro, 19:00h. <data value=""></data></p>
+        </div>
+    </section>
+</aside>
+        
+        <!-- Título e lista de canais      <li><a href="LiveYT.html" onclick="changeChannel(event)"></a>CANAL 1 </li>  -->
         <ul id="canais">
-            <li><a href="https://starplus.eventos.wtf/player.php?id=V1dFIFJBVw==" onclick="changeChannel(event)">Canal 1</a></li>
-            <li><a href="https://starplus.eventos.wtf/player.php?id=V1dFIFJBVw==" onclick="changeChannel(event)">Canal 2</a></li>
-            <li><a href="https://starplus.eventos.wtf/player.php?id=V1dFIFJBVw==" onclick="changeChannel(event)">PT-BR</a></li>
-            <li><a href="index.html">&#174; Refresh</a></li>
-        </ul>
-        <br><br>
-        <iframe id="player" src="" sandbox="allow-top-navigation allow-same-origin allow-scripts allow-forms" allow='encrypted-media' frameborder='0%' scrolling='no'></iframe>
+            <li><a href="chrome-extension://gijhpnmjcpbddpedmmdihijogkkejfgj/player.html#" target="_blank">💻 INGLÊS 1 🔴</a></li>
+            <li><a href="chrome-extension://gijhpnmjcpbddpedmmdihijogkkejfgj/player.html#" target="_blank">💻 INGLÊS 2 🔴</a></li>
+            <li><a href="" target="_blank">📱CELULAR 🔴</a></li>
+        </ul>   
+
+        <h1>⬆️ ESCOLHA UMA OPÇÃO ACIMA ⬆️</h1>
+        
+
+        <div class="acessButtons">
+            <button class="info-button" onclick="openModal()">🛈</button>
+            <button class="refresh-button" onclick="location.reload()">↻</button>
+        </div>
+ 
+        <div class="contador">
+            <a href='https://www.counter12.com'>
+                <img src='https://www.counter12.com/img-21yBD1w0z6075Z7Z-57.gif' alt='contador'>
+            </a>
+            <script type='text/javascript' src='https://www.counter12.com/ad.js?id=21yBD1w0z6075Z7Z'></script>
+        </div>
+    
+        
+        <!-- Player embutido -->
+        <iframe id="player" src="" allow="encrypted-media" frameborder="0" scrolling="no" allowfullscreen></iframe>
+
     </main>
+
+    <!-- Contador -->
     <footer>
-        <p>&copy; 2024 Kevyn_Mendes</p>
-        <div><a href='https://www.counter12.com'><img src='https://www.counter12.com/img-21yBD1w0z6075Z7Z-57.gif' git alt='contador'></a><script type='text/javascript' src='https://www.counter12.com/ad.js?id=21yBD1w0z6075Z7Z'></script></div>
+
+  <!-- O Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+        <h2>Instruções (Importantes)</h2>
+        <p>Por favor, siga as instruções abaixo para assistir às transmissões.</p>
+        <h3>1ª INSTALE A EXTENSÃO M3U8 AND HLS PLAYER NO GOOGLE CHROME (NECESSÁRIO)</h3>
+        <div class="pc-message" id="pc-message">
+            Para assistir, instale esta extensão no navegador:
+            <a href="https://chromewebstore.google.com/detail/m3u8-finder-and-hls-playe/gijhpnmjcpbddpedmmdihijogkkejfgj" target="_blank" rel="noopener noreferrer">
+                M3U8 FINDER AND HLS PLAYER
+            </a>.
+        </div>
+
+        <h3>2ª INSTALOU A EXTENSÃO ? CASO CONTRÁRIO, NÃO IRÁ FUNCIONAR.</h3>
+        <a class="watch-button" id="confirmButton">Sim</a>
+    </div>
+</div>
+
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

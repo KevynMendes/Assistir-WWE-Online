@@ -1,96 +1,388 @@
+/* Definindo o corpo da página */
 body {
-    width: 85%;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-color: #000;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: #fff;
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
 }
 
-h1{
-    width: 15rem;
-position: relative;
-right: -76rem;
-top: 4rem;
-color: #fff;
-font-size: 1.5rem;
+.menu-button {
+    background-color: #ff0000; /* Cor do botão */
+    color: white; /* Cor do texto do botão */
+    border: #000000 1px solid;
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 0.625rem 7rem;
+    font-size: 1.2rem; /* Tamanho da fonte */
+    cursor: pointer; /* Cursor como ponteiro ao passar o mouse */
+    position: fixed; /* Fixa o botão na tela */
+    top: 10px; /* Distância do topo */
+    left: 0px;
+    z-index: 2000; /* Fica acima da barra lateral */
+    transition: background-color 0.3s, transform 0.2s; /* Transição de cor e transformação */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra do botão */
+}
 
+.menu-button:hover {
+    background-color: #7b0913; /* Cor ao passar o mouse */
+    color: #fff; /* Muda a cor do texto ao passar o mouse */
+    transform: translateY(-2px); /* Leve elevação ao passar o mouse */
+}
+
+.menu-button:focus {
+    outline: none; /* Remove contorno padrão ao focar */
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.5); /* Sombra ao focar */
+}
+
+.sidebar {
+    background-color: rgba(0, 0, 0, 0.8); /* Cor de fundo mais escura */
+    color: white; /* Cor do texto */
+    margin-left: 0rem;
+    width: 17rem; /* Largura da barra lateral */
+    position: fixed; /* Fixa a barra lateral na tela */
+    top: 10px; /* Alinhada ao topo */
+    left: -450px; /* Inicialmente fora da tela */
+    height: 100%; /* Altura completa da tela */
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.5); /* Sombra da barra lateral mais forte */
+    z-index: 1000; /* Para ficar acima de outros elementos */
+    transition: left 0.3s ease, opacity 0.3s ease; /* Transição suave para abrir/fechar */
+    overflow-y:auto; /* Permitir rolagem vertical */
+    padding: 1rem; /* Espaçamento interno da barra lateral */
+    border-radius: 1rem;
+}
+
+.sidebar.open {
+    left: 0; /* Torna a barra lateral visível */
+    opacity: 1; /* Assegura que a barra lateral esteja opaca */
+}
+
+/* Estilos para a seção de cartões */
+.cards {
+    display: flex; /* Usar flexbox para layout */
+    flex-direction: column; /* Alinha os cartões em coluna */
+    align-items: center; /* Centraliza os cartões horizontalmente */
+}
+
+/* Estilos para cada cartão */
+.card {
+    background-color: #000; /* Cor de fundo do cartão */
+    border: 1px solid #ddd; /* Borda do cartão */
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    width: 100%; /* Largura total do cartão */
+    max-width: 300px; /* Largura máxima do cartão */
+    height: 14rem;
+    padding: 3rem; /* Espaçamento interno do cartão */
+    text-align: center; /* Centralizar texto dentro do cartão */
+}
+
+.card img {
+    margin-top:  -3rem;
+    width:100%; /* Imagem ocupa toda a largura do cartão */
+    height: auto; /* Altura automática para manter proporção */
+    border-radius: 8px; /* Cantos arredondados na imagem */
+}
+
+.card p {
+    font-size: 1.1rem; /* Tamanho da fonte do parágrafo */
+    margin-top: -1rem; /* Remover margens */
+}
+
+
+
+/* Estilo do container de vídeo de fundo */
+.video-container {
+    position: fixed;
+    bottom: 0rem;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Estilo do vídeo de fundo */
+#background-video {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.acessButtons {
+    display: flex; /* Coloca os botões lado a lado */
+    gap: 10px; /* Espaçamento entre os botões */
+    position: fixed;
+    top: 10px;
+    right: 10px;
+}
+
+.acessButtons button {
+    width: 50px;
+    height: 50px;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: #000000 1px solid;
+}
+
+.refresh-button {
+    background: #ff0000;
+    color: #fff;
+}
+
+.refresh-button:hover {
+    background: linear-gradient(145deg, #ff0000, #000000);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+}
+
+.refresh-button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.info-button {
+    background: #ff0000;
+    color: #fff;
+}
+
+.info-button:hover {
+    background: linear-gradient(145deg, #ff0000, #000000);
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1.1);
+}
+
+.info-button:active {
+    transform: scale(0.95);
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Ajustando o conteúdo principal */
+main {
+    position: relative;
+    z-index: 1;
+}
+
+h1, ul, p {
+    text-align: center;
+    font-size: 1.3rem;
+    z-index: 1;
 }
 
 ul#canais {
-    background-color: #000;
-    padding: 1rem;
-    border-radius: rem;
-    text-align: center;
+    display: flex; /* Faz os itens ficarem lado a lado */
+    justify-content:center; /* Centraliza os itens */
+    flex-wrap: wrap; /* Permite que os itens quebrem linha se necessário */
     list-style-type: none;
+    padding: 0.625rem;
+    margin: 0 0;
+    background-color: #000;
 }
 
 ul#canais li {
-    display: inline-block;
-    margin-right: 1rem;
+    margin-right: 1rem; /* Espaçamento entre os itens */
 }
 
 ul#canais li a {
-    color: #fff;
+    display: inline-block;
+    background-color: #151010; /* Cor de fundo vermelha */
+    color: #fff; /* Texto branco */
     text-decoration: none;
-    background-color: crimson;
-    padding: 1.5rem 6.8rem;
-    border-radius: 1rem;
-    border: solid 0.1rem;
+    font-weight: bold;
+    padding: 0.625rem 4rem; /* Padding para o botão */
+    border-radius: 5px; /* Bordas arredondadas */
+    border: #000000 1px solid; /* Borda preta */
+    font-size: 1.2rem; /* Tamanho da fonte */
+    transition: background-color 0.3s ease, 
+                box-shadow 0.3s ease, 
+                transform 0.1s ease,
+                border 0.3s ease; /* Transições para borda também */
+    box-shadow: 0px 8px 6px rgba(0, 0, 0, 0.2); /* Sombra inicial */
 }
 
-iframe {
-    margin-top: -1rem;
-    width: 75rem;
-    height: 40rem;
-    border: solid 0.1rem #333;
-    box-shadow: #000 0 0 5rem;
+/* Efeito ao passar o mouse */
+ul#canais li a:hover {
+    background-color: darkred; /* Cor de fundo ao passar o mouse */
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3); /* Sombra ao passar o mouse */
+    transform: translateY(-2px); /* Levanta levemente o botão */
+}
+
+/* Foco acessível */
+ul#canais li a:focus {
+    outline: none; /* Remove o contorno padrão */
+    border: 2px solid #fff; /* Borda branca ao focar */
+    transition: border-color 0.3s ease; /* Transição suave para a borda */
+}
+
+/* Efeito ao clicar */
+ul#canais li a:active {
+    transform: scale(0.95); /* Reduz o botão ao clicar */
+}
+
+iframe{
+    width: 100%;
+    height: 42rem;
+}
+
+.contador {
+    position: fixed; /* Fixa a posição na tela */
+    bottom: 0px; /* Distância do fundo da tela */
+    right: 0px; /* Distância da direita da tela */
+    z-index: 1; /* Certifique-se de que esteja acima de outros elementos */
 }
 
 footer {
-    width: 100%;
-    border-radius: 1rem;
-    background-color: #000;
-    color: #fff;
-    padding: 1rem;
-    text-align: center;
+    padding: 0REM;
+    text-align: end;
+
 }
 
-/* Media queries para dispositivos móveis */
-@media only screen and (max-width: 767px) {
+/* Estilizando a barra de rolagem para navegadores WebKit (Chrome, Safari) */
+::-webkit-scrollbar {
+    width: 10px; /* Largura da barra de rolagem */
+
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Cor do fundo da barra de rolagem */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #111; /* Cor do 'polegar' (parte que pode ser arrastada) */
+    border-radius: 10px; /* Arredondar os cantos do polegar */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #333; /* Cor do polegar ao passar o mouse */
+}
+
+/* Estilizando a barra de rolagem para Firefox */
+* {
+    scrollbar-width:thin; /* Largura da barra de rolagem */
+    scrollbar-color:#222 #524f4f; /* Cor do polegar e do fundo da barra de rolagem */
+}
+
+/* Media Queries para telas menores */
+@media (max-width: 768px) {
+
     body {
-        width: auto;
-    }
-
-    ul#canais {
-        padding: 0.5rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
-        gap: 1rem;
-        justify-content: center; 
-    }
-
-    ul#canais li {
-        margin: 0rem;
-    }
-
-    ul#canais li a {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #000;
         color: #fff;
-        text-decoration: none;
-        background-color: crimson;
-        padding: 1rem; 
-        border-radius: 1rem;
-        border: solid 0.1rem;
-        width: 60%;
-        white-space: nowrap;
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+    }
+    
+    .menu-button {
+        position: absolute; /* Para permitir o controle total de posição */
+        top: 0; /* Posiciona o botão no topo */
+        left: 0; /* Alinha à esquerda */
+        right: 0; /* Alinha à direita */
+        margin: 0; /* Remove a margem automática */
+        padding: 0.625rem 0; /* Reduz o padding para telas menores */
+        font-size: 1rem; /* Diminui o tamanho da fonte */
+        text-align: center; /* Centraliza o texto dentro do botão */
     }
 
-    iframe {
-        width: 21rem;
-        height: 30rem;
-        margin-top: -2rem;
-}
+    .sidebar {
+        margin:0;
+        width: 100%; /* Reduz a largura da barra lateral */
+        left: -110%;
+    }
+
+    .cards {
+        position: relative; /* Define o contêiner como relativo */
+        display: flex; /* Usar flexbox para layout */
+        flex-direction: column; /* Alinha os cartões em coluna */
+        justify-content: center; /* Centraliza os cartões na linha */
+        align-items: center; /* Centraliza os cartões horizontalmente */
+        margin: 0; /* Remove margens do contêiner */
+        padding: 0; /* Remove o padding do contêiner */
+        width: 100%; /* Ocupar toda a largura da tela */
+        height: auto; /* Altura automática para se ajustar ao conteúdo */
+    }
+    
+    .card {
+        margin:0.1rem 0; /* Espaçamento vertical entre os cartões */
+        background-color: #000; /* Cor de fundo do cartão */
+        border: 1px solid #ffffff; /* Borda do cartão */
+        border-radius: 8px; /* Cantos arredondados */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        width: 90%; /* Ocupar 90% da largura do contêiner */
+        height: auto; /* Deixa a altura do cartão automática */
+        padding: 3rem; /* Espaçamento interno do cartão */
+    }
+    
+    
+    ul#canais {
+        justify-content: center; /* Centraliza os itens */
+        flex-wrap:inherit; /* Permite que os itens quebrem linha se necessário */
+        list-style-type: none;
+        padding: 0.625rem;
+        margin: 0 0;
+        background-color: #000;
+    }
+    
+    ul#canais li {
+        margin-top: 2.5rem;
+        margin-right: 0.5rem; /* Espaçamento entre os itens */
+    }
+    
+    ul#canais li a {
+        display: inline-block;
+        background-color: #151010; /* Cor de fundo vermelha */
+        color: #fff; /* Texto branco */
+        font-size: 1rem;
+        text-decoration: none;
+        font-weight: bold;
+        padding: 0.1rem 0.1rem; /* Padding para o botão */
+    }
+    .video-container {
+        position: absolute;
+        top: 0; /* Alinha ao topo */
+        left: 0; /* Alinha à esquerda */
+        width: 100vw; /* Ocupar toda a largura da tela */
+        height: 100%; /* Ocupar toda a altura da tela */
+        z-index: -1; /* Garante que o vídeo fique atrás de outros elementos */
+        overflow: hidden; /* Oculta qualquer overflow */
+    }
+    
+    /* Estilo do vídeo de fundo */
+    #background-video {
+        width: 100%; /* O vídeo ocupará 100% da largura do contêiner */
+        height: 100%; /* O vídeo ocupará 100% da altura do contêiner */
+        object-fit:cover; /* Preenche o contêiner cortando o que não couber */
+        position: absolute; /* Manter o vídeo posicionado */
+        top: 0; /* Alinha ao topo */
+        left: 0; /* Alinha à esquerda */
+    }
+    
+    .acessButtons {
+        display: none; /* Coloca os botões lado a lado */
+        gap: 10px; /* Espaçamento entre os botões */
+        position: fixed;
+        top: 2px;
+        right: 3px;
+        z-index: 10000;
+    }
+
+    .contador {
+        font-size: 0.9rem; /* Reduz o tamanho da fonte do contador */
+        bottom: 10px; /* Ajusta a posição do contador */
+        right: 10px; /* Ajusta a posição do contador */
+    }
 }
